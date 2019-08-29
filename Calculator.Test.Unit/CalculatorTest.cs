@@ -61,5 +61,29 @@ namespace Calculator.Test.Unit
         {
             Assert.That(uut.Power(3,2),Is.EqualTo(9));
         }
+
+        // Overload test
+        [TestCase(1,1,1,3)]
+        [TestCase(1, 2, 3, 6)]
+        [TestCase(1, -2, -3, -4)]
+        [Test]
+        public void Add_Three_Times_One_Return(double a,double b, double c,double d)
+        {
+            uut.Add(a);
+            uut.Add(b);
+            Assert.That(uut.Add(c),Is.EqualTo(d));
+        }
+
+
+        [TestCase(1, 1, 1, -1)]
+        [TestCase(6, 2, 3, 1)]
+        [TestCase(-2, -2, -3, -7)]
+        [Test]
+        public void Subtract_Three_Times_One_Return(double a, double b, double c, double d)
+        {
+            uut.Add(a);
+            uut.Add(b);
+            Assert.That(uut.Add(c), Is.EqualTo(d));
+        }
     }
 }
