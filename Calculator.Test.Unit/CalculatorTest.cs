@@ -61,5 +61,14 @@ namespace Calculator.Test.Unit
         {
             Assert.That(uut.Power(3,2),Is.EqualTo(9));
         }
+
+
+        [TestCase(10,2,5)]
+        [TestCase(10,0,0)]
+        public void Devide_Two_Numbers(double a, double b, double c)
+        {
+            Assert.That(uut.Devide(a, b), Is.EqualTo(c));
+        }
+
     }
 }
