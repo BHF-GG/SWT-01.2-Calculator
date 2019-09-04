@@ -23,7 +23,8 @@ namespace Calculator
 
         public double Add(double addend)
         {
-            return addend + Accumulator;
+            Accumulator += addend;
+            return Accumulator;
         }
 
         public double Subtract(double a, double b)
@@ -34,7 +35,8 @@ namespace Calculator
 
         public double Subtract(double subtractor)
         {
-            return Accumulator- subtractor;
+            Accumulator -= subtractor;
+            return Accumulator;
         }
 
         public double Multiply(double a, double b)
@@ -45,7 +47,8 @@ namespace Calculator
 
         public double Multiply(double multiplier)
         {
-            return multiplier * Accumulator;
+            Accumulator *= multiplier;
+            return Accumulator;
         }
 
         public double Power(double x, double exp)
@@ -54,7 +57,7 @@ namespace Calculator
             return Accumulator;
         }
 
-        public double Devide(double a, double b)
+        public double Divide(double a, double b)
         {
             if (b == 0)
             {
@@ -62,17 +65,20 @@ namespace Calculator
                 return 0;
             }
 
-            return a / b;
+            Accumulator = a / b;
+            return Accumulator;
         }
 
         public double Power(double exponent)
         {
-            return Math.Pow(Accumulator, exponent);
+            Accumulator = Math.Pow(Accumulator, exponent);
+            return Accumulator;
         }
 
         public double Divide(double divisor)
         {
-            return Accumulator / divisor;
+            Accumulator /= divisor;
+            return Accumulator;
         }
 
         static void Main(string[] args)

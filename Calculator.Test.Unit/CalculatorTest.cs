@@ -67,7 +67,7 @@ namespace Calculator.Test.Unit
         [TestCase(1, 2, 3, 6)]
         [TestCase(1, -2, -3, -4)]
         [Test]
-        public void Add_Three_Times_One_Return(double a,double b, double c,double d)
+        public void Add_Three_Times_Return(double a,double b, double c,double d)
         {
             uut.Add(a);
             uut.Add(b);
@@ -75,15 +75,36 @@ namespace Calculator.Test.Unit
         }
 
 
-        [TestCase(1, 1, 1, -1)]
-        [TestCase(6, 2, 3, 1)]
-        [TestCase(-2, -2, -3, -7)]
+        [TestCase(1, 1, 1, -3)]
+        [TestCase(6, 2, 3, -11)]
+        [TestCase(-2, -2, -3, 7)]
         [Test]
-        public void Subtract_Three_Times_One_Return(double a, double b, double c, double d)
+        public void Subtract_Three_Times_Return(double a, double b, double c, double d)
         {
-            uut.Add(a);
-            uut.Add(b);
-            Assert.That(uut.Add(c), Is.EqualTo(d));
+            uut.Subtract(a);
+            uut.Subtract(b);
+            Assert.That(uut.Subtract(c), Is.EqualTo(d));
+        }
+
+        [TestCase(2, 2, 3, 4, 48)]
+        [TestCase(4, 2, 1, 3, 24)]
+        [TestCase(10, -2, 3, 3, -180)]
+        [Test]
+        public void Multiply_Three_Times(double a, double b, double c, double d, double e)
+        {
+            uut.Multiply(a, b);
+            uut.Multiply(c);
+            uut.Multiply(d);
+            Assert.That(uut.Accumulator, Is.EqualTo(e));
+        }
+
+        [TestCase(10, 2, 5,1)]
+        [TestCase(20, -2,2, -5)]
+        [Test]
+        public void Divide_Two_Time(double a, double b, double c, double d)
+        {
+            uut.Divide(a, b);
+            Assert.That(uut.Divide(c), Is.EqualTo(d));
         }
     }
 }
