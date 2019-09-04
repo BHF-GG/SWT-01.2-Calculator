@@ -63,12 +63,11 @@ namespace Calculator.Test.Unit
         }
 
 
-        [TestCase(10,2,5)]
-        [TestCase(10,0,0)]
+        [TestCase(10, 2, 5)]
+        [TestCase(10, 0, 0)]
         public void Devide_Two_Numbers(double a, double b, double c)
         {
             Assert.That(uut.Devide(a, b), Is.EqualTo(c));
         }
-
     }
 }
