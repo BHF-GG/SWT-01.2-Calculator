@@ -58,7 +58,6 @@ namespace Calculator.Test.Unit
             Assert.That(uut.Subtract(c), Is.EqualTo(d));
         }
 
-
         //Multiply Test
         [Test]
         public void MultiplyFour_Times_2point2_Return_8point8()
