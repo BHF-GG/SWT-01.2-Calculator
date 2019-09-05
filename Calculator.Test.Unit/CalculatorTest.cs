@@ -20,25 +20,6 @@ namespace Calculator.Test.Unit
             uut = new CalculatorClass();
         }
 
-        // Add test
-        [Test]
-        public void AddOne_Plus_Two_Return3()
-        {
-            Assert.That(uut.Add(1,2), Is.EqualTo(3));
-        }
-
-        [Test]
-        public void Add_Two_Three_return_5()
-        {
-            Assert.That(uut.Add(2, 3), Is.EqualTo(5));
-        }
-
-        [Test]
-        public void AddThree_Plus_MinusFive_ReturnMinusTwo()
-        {
-            Assert.That(uut.Add(3,-5), Is.EqualTo((-2)));
-        }
-
         [TestCase(3, 2, 5)]
         [TestCase(4, -2, 2)]
         [TestCase(-10, 2.2, -7.8)]
