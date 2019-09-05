@@ -105,6 +105,12 @@ namespace Calculator.Test.Unit
             Assert.That(uut.Divide(a,b),Is.EqualTo(c));
         }
 
+        [Test]
+        public void Devide_DevideByZero_ReturnExceptoion()
+        {
+            Assert.That(() => uut.Divide(5, 0 ), Throws.Exception);
+        }
+
         [TestCase(10, 2, 5, 1)]
         [TestCase(20, -2, 2, -5)]
         [TestCase(30, 2, 5, 3)]

@@ -61,12 +61,20 @@ namespace Calculator
         {
             if (b == 0)
             {
-                Console.WriteLine("Du kan ikke dividere med 0");
-                return 0;
+                throw new Exception();
             }
-
             Accumulator = a / b;
             return Accumulator;
+
+            
+            //if (b == 0)
+            //{
+            //    Console.WriteLine("Du kan ikke dividere med 0");
+            //    return 0;
+            //}
+
+            //Accumulator = a / b;
+            //return Accumulator;
         }
 
         public double Power(double exponent)
