@@ -20,13 +20,17 @@ namespace Calculator.Test.Unit
             uut = new CalculatorClass();
         }
 
+        // Add test
         [Test]
         public void AddOne_Plus_Two_Return3()
         {
-            // Arrange
-
-            // Act
             Assert.That(uut.Add(1,2), Is.EqualTo(3));
+        }
+
+        [Test]
+        public void Add_Two_Three_return_5()
+        {
+            Assert.That(uut.Add(2, 3), Is.EqualTo(5));
         }
 
         [Test]
@@ -44,53 +48,48 @@ namespace Calculator.Test.Unit
             Assert.That(uut.Add(a,b),Is.EqualTo(c));
         }
 
-        [Test]
-        public void SubtractTree_Mins_Two_ReturnOne()
-        {
-            Assert.That(uut.Subtract(3,2), Is.EqualTo(1));
-        }
-
-        [Test]
-        public void MultiplyFour_Times_2point2_Return_8point8()
-        {
-            Assert.That(uut.Multiply(4,2.2),Is.EqualTo(8.8));
-        }
-
-        [Test]
-        public void PowerOf_3_exp_2_return9()
-        {
-            Assert.That(uut.Power(3,2),Is.EqualTo(9));
-        }
-
-        // Overload test
-        [TestCase(1,1,1,3)]
+        [TestCase(1, 1, 1, 3)]
         [TestCase(1, 2, 3, 6)]
         [TestCase(1, -2, -3, -4)]
         [Test]
-        public void Add_Three_Times_Return(double a,double b, double c,double d)
+        public void OverloadOfAdd_Three_Times_Return(double a, double b, double c, double d)
         {
             uut.Add(a);
             uut.Add(b);
-            Assert.That(uut.Add(c),Is.EqualTo(d));
+            Assert.That(uut.Add(c), Is.EqualTo(d));
         }
 
+        // Subtract test
+        [Test]
+        public void SubtractThree_Minus_Two_ReturnOne()
+        {
+            Assert.That(uut.Subtract(3,2), Is.EqualTo(1));
+        }
 
         [TestCase(1, 1, 1, -3)]
         [TestCase(6, 2, 3, -11)]
         [TestCase(-2, -2, -3, 7)]
         [Test]
-        public void Subtract_Three_Times_Return(double a, double b, double c, double d)
+        public void OverloadOfSubtract_Three_Times_Return(double a, double b, double c, double d)
         {
             uut.Subtract(a);
             uut.Subtract(b);
             Assert.That(uut.Subtract(c), Is.EqualTo(d));
         }
 
+
+        //Multiply Test
+        [Test]
+        public void MultiplyFour_Times_2point2_Return_8point8()
+        {
+            Assert.That(uut.Multiply(4,2.2),Is.EqualTo(8.8));
+        }
+
         [TestCase(2, 2, 3, 4, 48)]
         [TestCase(4, 2, 1, 3, 24)]
         [TestCase(10, -2, 3, 3, -180)]
         [Test]
-        public void Multiply_Three_Times(double a, double b, double c, double d, double e)
+        public void OverloadOfMultiply_Three_Times(double a, double b, double c, double d, double e)
         {
             uut.Multiply(a, b);
             uut.Multiply(c);
@@ -98,13 +97,31 @@ namespace Calculator.Test.Unit
             Assert.That(uut.Accumulator, Is.EqualTo(e));
         }
 
-        [TestCase(10, 2, 5,1)]
-        [TestCase(20, -2,2, -5)]
+        [TestCase(5,2,2.5)]
+        [TestCase(7,2,3.5)]
+        [TestCase(2,2,1)]
+        public void Divide_TwoNumbers_Return(double a, double b, double c)
+        {
+            Assert.That(uut.Divide(a,b),Is.EqualTo(c));
+        }
+
+        [TestCase(10, 2, 5, 1)]
+        [TestCase(20, -2, 2, -5)]
+        [TestCase(30, 2, 5, 3)]
         [Test]
-        public void Divide_Two_Time(double a, double b, double c, double d)
+        public void OverloadOfDivide_Two_Time(double a, double b, double c, double d)
         {
             uut.Divide(a, b);
             Assert.That(uut.Divide(c), Is.EqualTo(d));
+        }
+
+        [TestCase(3,2,9)]
+        [TestCase(5, 3, 125)]
+        [TestCase(3, 3, 27)]
+        [Test]
+        public void Power_Of_Exp_Return9(double a, double b, double c)
+        {
+            Assert.That(uut.Power(a,b),Is.EqualTo(c));
         }
     }
 }
